@@ -32,4 +32,4 @@ jobs:
 
     # 5. Chạy toàn bộ Unit Tests (xUnit) để kiểm tra chất lượng code
     - name: Run Unit Tests
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --verbosity normal
