@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ShedCraft.API/ShedCraft.API.csproj" />
+    <Project Path="src/ShedCraft.Application/ShedCraft.Application.csproj" />
+    <Project Path="src/ShedCraft.Domain/ShedCraft.Domain.csproj" />
+    <Project Path="src/ShedCraft.Infrastructure/ShedCraft.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ShedCraft.Tests/ShedCraft.Tests.csproj" />
+  </Folder>
+</Solution>

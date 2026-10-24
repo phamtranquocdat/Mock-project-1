@@ -1,0 +1,35 @@
+name: .NET CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout mã nguồn từ repository lên máy ảo của GitHub
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # 2. Cài đặt .NET SDK (chọn phiên bản .NET tương ứng với project của bạn, ví dụ .NET 8.0)
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    # 3. Khôi phục các NuGet packages
+    - name: Restore Dependencies
+      run: dotnet restore
+
+    # 4. Build toàn bộ Solution
+    - name: Build Project
+      run: dotnet build --no-restore --configuration Release
+
+    # 5. Chạy toàn bộ Unit Tests (xUnit) để kiểm tra chất lượng code
+    - name: Run Unit Tests
+      run: dotnet test --no-build --verbosity normal
